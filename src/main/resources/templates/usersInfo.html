@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/mycss.css}" />
+<head>
+<meta charset="ISO-8859-1" />
+<style type="text/css">
+td {
+	font-weight: bold;
+	color: navy;
+}
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="caption">Registered User Information</div>
+	<div id="table">
+		<div class="header-row row">
+			<span class="cell primary">Name</span> <span class="cell">BloodGroup</span>
+			<span class="cell">BikeModel</span> <span class="cell">AGE</span> <span
+				class="cell">DLNO</span> <span class="cell">Street</span> <span
+				class="cell">City</span> <span class="cell">District</span> <span
+				class="cell">State</span> <span class="cell">PinCode</span>
+
+		</div>
+		<div class="row" th:each="user : ${userInfo}">
+			<input type="radio" name="expand" /> <span class="cell primary"
+				data-label="Name" th:text="${user.name}"></span> <span class="cell"
+				data-label="BloodGrop" th:text="${user.bloodGroup}"> </span> <span
+				class="cell" data-label="BikeModel" th:text="${user.bikeModel}"></span>
+			<span class="cell" data-label="AGE" th:text="${user.age}"></span> <span
+				class="cell" data-label="DLNO" th:text="${user.dlNo}"></span> <span
+				class="cell" data-label="Street" th:text="${user.address.street}"></span>
+			<span class="cell" data-label="City" th:text="${user.address.city}"></span>
+			<span class="cell" data-label="District"
+				th:text="${user.address.dist}"></span> <span class="cell"
+				data-label="State" th:text="${user.address.state}"></span> <span
+				class="cell" data-label="PinCode" th:text="${user.address.pinCode}"></span>
+		</div>
+
+	</div>
+
+
+</body>
+</html>
